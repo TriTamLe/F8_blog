@@ -1,0 +1,24 @@
+{
+  "name": "f8_blog",
+  "version": "1.0.0",
+  "description": "Using to study nodeJS and ExpressJS on F8 Official",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TriTamLe/F8_nodeJS_learning.git"
+  },
+  "keywords": [
+    "f8",
+    "learningNodeJS",
+    "TriTam"
+  ],
+  "author": "TriTam54",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TriTamLe/F8_nodeJS_learning/issues"
+  },
+  "homepage": "https://github.com/TriTamLe/F8_nodeJS_learning#readme"
+}
