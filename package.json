@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/TriTamLe/F8_nodeJS_learning/issues"
   },
-  "homepage": "https://github.com/TriTamLe/F8_nodeJS_learning#readme"
+  "homepage": "https://github.com/TriTamLe/F8_nodeJS_learning#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
