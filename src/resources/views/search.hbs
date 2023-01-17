@@ -1,8 +1,36 @@
-<div class="mt-4">
-    <form>
-        <div class="mb-3">
-            <input type="text" class="form-control" name="q" id="exampleInputsearch1" placeholder="Nhập thông tin">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+<div class='mt-4'>
+  <form method='POST' action='searchRs'>
+    <div class='form-floating mb-3'>
+      <input
+        type='text'
+        class='form-control'
+        name='fname'
+        id='exampleInputsearch1'
+        placeholder='Họ và tến'
+      />
+      <label for='exampleInputsearch1'>Họ và tên</label>
+    </div>
+    <div class='form-floating mb-3'>
+      <input
+        type='date'
+        class='form-control'
+        name='DOB'
+        id='exampleAge'
+        placeholder='Ngày sinh'
+      />
+      <label for='exampleAge'>Ngày sinh</label>
+    </div>
+    <select
+      class='form-select form-select-md mb-3'
+      aria-label='.form-select-lg example'
+      name='gender'
+    >
+      <option selected>Giới tính của bạn</option>
+      <option value='male'>Nam</option>
+      <option value='female'>Nữ</option>
+      <option value='other'>Khác</option>
+
+    </select>
+    <button type='submit' class='btn btn-primary'>Submit</button>
+  </form>
 </div>
