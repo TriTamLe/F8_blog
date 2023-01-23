@@ -14,7 +14,8 @@ class CourseController {
   store(req, res, nex) {
     const newCourse = req.body;
     const imgID = req.body.imageID;
-    newCourse.image = `https://i3.ytimg.com/vi/${imgID}/sddefault.jpg`;
+    console.log(imgID);
+    newCourse.image = `https://i3.ytimg.com/vi/${imgID}/maxresdefault.jpg`;
     Course.create(newCourse).then(() => {
       res.redirect('/');
     });
@@ -29,6 +30,26 @@ class CourseController {
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  //[GET] /edit/:id
+  edit(req, res, next) {
+    Course.findById(req.params.id)
+      .then((course) =>
+        res.render('courses/edit', {
+          course: mongooseObject(course),
+        }),
+      )
+      .catch(next);
+  }
+
+  //[PUT] /:id
+  update(req, res, next) {
+    Course.updateOne({ _id: req.params.id }, req.body)
+      .then(() => {
+        res.redirect('/me/stored/courses');
+      })
+      .catch(next);
   }
 }
 
