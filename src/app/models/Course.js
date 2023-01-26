@@ -11,7 +11,7 @@ const Course = new Schema(
     },
     description: {
       type: String,
-      maxLength: 500,
+      maxLength: 1500,
     },
     image: {
       type: String,

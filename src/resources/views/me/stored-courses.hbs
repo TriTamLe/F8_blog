@@ -1,4 +1,4 @@
-<div class='mt-4'>
+<div class='my-courses mt-4'>
   <h3>Khóa học của tôi</h3>
   <table class='table mt-4'>
     <thead>
@@ -19,13 +19,13 @@
           <td>{{this.description}}</td>
           <td>{{this.createdAt}}</td>
           <td>
-            <a href='/course/edit/{{this._id}}' class='btn btn-primary'>Sửa</a>
+            <a href='/course/edit/{{this._id}}' class='btn btn-edit'>Sửa</a>
 
           </td>
           <td>
             <a
               href=''
-              class='btn btn-secondary'
+              class='btn btn-delete'
               data-bs-toggle='modal'
               data-bs-target='#modal-confirm-delete'
               data-bs-id='{{this._id}}'
@@ -51,15 +51,18 @@
           aria-label='Close'
         ></button>
       </div>
-      <div class='modal-body' style='color: aliceblue;'>
+      <div class='modal-body'>
         <p>Bạn xác nhận xóa khóa học này không?</p>
       </div>
       <div class='modal-footer'>
-        <button type='button' class='btn btn-danger' id='btn-delete-confirm'>Xác
-          nhận xóa</button>
         <button
           type='button'
-          class='btn btn-secondary'
+          class='btn btn-confirm-delete'
+          id='btn-delete-confirm'
+        >Xác nhận xóa</button>
+        <button
+          type='button'
+          class='btn btn-cancel'
           data-bs-dismiss='modal'
         >Hủy</button>
       </div>
@@ -72,12 +75,6 @@
 <form name='delete-form' method='POST' action=''>
 </form>
 
-<script>
-  var courseID; var deleteForm = document.forms['delete-form']; const
-  deleteConfirmModal = document.getElementById('modal-confirm-delete');
-  deleteConfirmModal.addEventListener('show.bs.modal', event => { const button =
-  event.relatedTarget; courseID = button.getAttribute('data-bs-id'); }); const
-  btnDeleteConfirm = document.getElementById("btn-delete-confirm");
-  btnDeleteConfirm.onclick = function () { alert(courseID); deleteForm.action =
-  '/course/' + courseID + '?_method=DELETE'; deleteForm.submit() }
+<script src='/script/delete_courses.js'>
+
 </script>

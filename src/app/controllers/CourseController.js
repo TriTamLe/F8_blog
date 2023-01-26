@@ -24,10 +24,15 @@ class CourseController {
   //[GET] /showCourse
   show(req, res, next) {
     Course.findOne({ slug: req.params.slug })
-      .then((course) => {
-        res.render('courses/show', { course: mongooseObject(course) });
+      .then(course => {
+        const mongoCourse = mongooseObject(course);
+        const videoID = mongoCourse.image.slice(24, -18);
+
+        res.render('courses/show', {
+          course: { ...mongoCourse, videoID: videoID },
+        });
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   }
@@ -35,7 +40,7 @@ class CourseController {
   //[GET] /edit/:id
   edit(req, res, next) {
     Course.findById(req.params.id)
-      .then((course) =>
+      .then(course =>
         res.render('courses/edit', {
           course: mongooseObject(course),
         }),

@@ -2,7 +2,7 @@
   <div class='row'>
     {{#each courses}}
       <div class='col-sm-6 col-lg-4'>
-        <div class='card mt-3'>
+        <div class='card mt-3 mb-4'>
           <a href='/course/{{this.slug}}'>
             <img src='{{this.image}}' class='card-img-top' alt='...' />
           </a>
@@ -11,7 +11,7 @@
               <h5 class='card-title'>{{this.name}}</h5>
             </a>
             <p class='card-text'>{{this.description}}</p>
-            <a href='#' class='btn btn-primary'>Học ngay!</a>
+            <a href='/course/{{this.slug}}' class='btn'>Học ngay!</a>
           </div>
         </div>
       </div>
