@@ -1,7 +1,7 @@
 <div class='my-courses mt-4'>
   <div>
-    <h3>Khóa học của tôi</h3>
-    <a href='/me/trash/courses'>Thùng rác</a>
+    <a href='/me/stored/courses'>Danh sách khóa học</a>
+    <h3>Khóa học đã xóa</h3>
   </div>
 
   <table class='table mt-4'>
@@ -23,24 +23,28 @@
           <td>{{this.description}}</td>
           <td>{{this.createdAt}}</td>
           <td>
-            <a href='/course/edit/{{this._id}}' class='btn btn-edit'>Sửa</a>
+            <a
+              href=''
+              class='btn btn-edit btn-restore'
+              name='btn-restore'
+              data-bs-id='{{this._id}}'
+            >Khôi phục</a>
 
           </td>
           <td>
             <a
               href=''
-              class='btn btn-delete'
+              class='btn btn-outline-danger'
               data-bs-toggle='modal'
-              data-bs-target='#modal-confirm-delete'
+              data-bs-target='#modal-confirm-destroy'
               data-bs-id='{{this._id}}'
-            >Xóa</a>
+            >Xóa vĩnh viễn</a>
           </td>
         </tr>
       {{else}}
         <tr>
           <td colspan='5' class='text-center'>
-            Bạn chưa đăng khóa học nào.
-            <a href='/course/create'>Đăng khóa học</a>
+            Thùng rác trống
           </td>
         </tr>
       {{/each}}
@@ -50,11 +54,16 @@
 
 {{!Confirm delete }}
 
-<div class='modal' tabindex='-1' id='modal-confirm-delete' data-bs-theme='dark'>
+<div
+  class='modal'
+  tabindex='-1'
+  id='modal-confirm-destroy'
+  data-bs-theme='dark'
+>
   <div class='modal-dialog'>
     <div class='modal-content'>
       <div class='modal-header'>
-        <h5 class='modal-title'>Xóa khóa học</h5>
+        <h5 class='modal-title'>Xóa vĩnh viễn</h5>
         <button
           type='button'
           class='btn-close'
@@ -63,14 +72,14 @@
         ></button>
       </div>
       <div class='modal-body'>
-        <p>Bạn xác nhận xóa khóa học này không?</p>
+        <p>Hành động này không thể khôi phục! Bạn có chắc chắn muốn xóa?</p>
       </div>
       <div class='modal-footer'>
         <button
           type='button'
           class='btn btn-confirm-delete'
-          id='btn-delete-confirm'
-        >Xác nhận xóa</button>
+          id='btn-destroy-confirm'
+        >Xác nhận xóa vĩnh viễn</button>
         <button
           type='button'
           class='btn btn-cancel'
@@ -83,9 +92,9 @@
 
 {{!DELETE hidden form}}
 
-<form name='delete-form' method='POST' action=''>
-</form>
+<form name='destroy4ever-form' method='POST' action=''></form>
+<form name='restore-form' method='POST' action=''></form>
 
-<script src='/script/delete_courses.js'>
+<script src='/script/restore_and_deleted_courses.js'>
 
 </script>
